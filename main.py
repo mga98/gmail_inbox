@@ -9,8 +9,8 @@ def main():
     service = start_api('credentials.json')
     messages = Messages(service)
 
-    messages_header = messages.filter(filter='nito')
-    messages_header = messages.get_messages_header()
+    messages_header = messages.filter()
+    messages_header = messages.get_messages_header(messages_header)
     print(messages_header)
 
 

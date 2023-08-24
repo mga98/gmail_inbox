@@ -4,8 +4,8 @@ import csv
 class Messages:
     def __init__(self, service):
         self.service = service
-        self.results = self.filter()
-        self.messages = self.results.get('messages')
+        # self.results = self.filter()
+        # self.messages = self.results.get('messages')
 
     def filter(
         self,
@@ -24,16 +24,18 @@ class Messages:
             q=f'category:primary subject:{filter}',
         ).execute()
 
-    def get_messages_header(self) -> list | str:
+    def get_messages_header(self, results) -> list | str:
         '''
         Return a list of emails subjects and senders
         '''
-        if not self.messages:
+        messages = results.get('messages')
+
+        if not messages:
             return 'Você não tem nenhuma mensagem ainda.'
 
         messages_header = list()
 
-        for msg in self.messages:
+        for msg in messages:
             txt = self.service.users().messages().get(
                 userId='me', id=msg['id']
             ).execute()
