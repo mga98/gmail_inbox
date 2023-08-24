@@ -10,7 +10,7 @@ def main():
     messages = Messages(service)
 
     messages_header = messages.filter()
-    messages_header = messages.get_messages_header(messages_header)
+    messages_header = messages.get_messages(messages_header)
     print(messages_header)
 
 
