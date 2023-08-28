@@ -19,7 +19,7 @@ class Messages:
             userId=userId,
             includeSpamTrash=includeSpamTrash,
             labelIds=labelIds,
-            q=f'category:primary subject:{filter}',
+            q=f'category:primary subject:{filter} is:unread',
         ).execute()
 
     def get_messages(self, results) -> list | str:
@@ -29,7 +29,7 @@ class Messages:
         messages = results.get('messages')
 
         if not messages:
-            return 'Você não tem nenhuma mensagem ainda.'
+            return False
 
         messages_header = list()
 
