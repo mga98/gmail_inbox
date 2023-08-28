@@ -1,6 +1,3 @@
-import csv
-
-
 class Messages:
     def __init__(self, service):
         self.service = service
@@ -58,24 +55,3 @@ class Messages:
                 pass
 
         return messages_header
-
-    def get_columns(self, messages: list) -> list:
-        '''
-        Return a list of keys to be columns in csv file
-        '''
-        return list(messages[0])
-
-    def save_csv(self, messages: list, file_name: str = 'file.csv') -> None:
-        '''
-        Save the messages dict into a csv file
-        '''
-        columns = self.get_columns(messages)
-
-        with open(
-            file_name, 'w', newline='', encoding='utf-8'
-        ) as csv_file:
-            writer = csv.DictWriter(csv_file, fieldnames=columns)
-            writer.writeheader()
-
-            for message in messages:
-                writer.writerow(message)

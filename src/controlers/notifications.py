@@ -1,5 +1,11 @@
 from win10toast import ToastNotifier
 
+import sys
+from pathlib import Path
+file = Path(__file__).resolve()
+parent, root = file.parent, file.parents[1]
+sys.path.append(str(root))
+
 
 class Notification:
     def __init__(self):

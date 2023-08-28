@@ -1,8 +1,14 @@
 from __future__ import print_function
 
-from api import start_api
-from get_messages import Messages
-from notifications import Notification
+import sys
+from pathlib import Path
+file = Path(__file__).resolve()
+parent, root = file.parent, file.parents[1]
+sys.path.append(str(root))
+
+from controlers.notifications import Notification  # noqa
+from controlers.api import start_api  # noqa
+from models.messages import Messages  # noqa
 
 
 def main():
