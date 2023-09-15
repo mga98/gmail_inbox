@@ -1,7 +1,10 @@
 from __future__ import print_function
 
 import sys
+import time
+import schedule
 from pathlib import Path
+
 file = Path(__file__).resolve()
 parent, root = file.parent, file.parents[1]
 sys.path.append(str(root))
@@ -17,12 +20,15 @@ def main():
 
     messages = Messages(service)
     notifications = Notification()
-    filtro = ''
+    filter = ''
 
-    messages_header = messages.filter(filtro)
+    messages_header = messages.filter(filter)
     messages_header = messages.get_messages(messages_header)
     notifications.show_notification(messages_header)
 
 
-if __name__ == '__main__':
-    main()
+schedule.every(30).seconds.do(main)
+
+while True:
+    schedule.run_pending()
+    time.sleep(1)
