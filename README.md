@@ -7,3 +7,30 @@
 
 Script feito em Python utilizando a API do gmail para filtrar e notificar emails desejados. A notificação utiliza a biblioteca win10toast, ou seja, o script funciona apenas em Windows 10. Eu criei este script para receber notificações e atualizações das minhas candidaturas para vagas de emprego/estágio, o script me notifica apenas quando recebo emails deste tipo com uma mensagem do tipo toast no canto da tela do notebook.
 
+
+## Rodando localmente (Em breve)
+
+Clone o projeto
+
+```bash
+  git clone https://link-para-o-projeto
+```
+
+Entre no diretório do projeto
+
+```bash
+  cd my-project
+```
+
+Instale as dependências
+
+```bash
+  npm install
+```
+
+Inicie o servidor
+
+```bash
+  npm run start
+```
+
