@@ -20,14 +20,15 @@ def main():
 
     messages = Messages(service)
     notifications = Notification()
-    filter = ''
+    sender = 'Estácio'
+    subject = 'Miguel'
 
-    messages_header = messages.filter(filter)
+    messages_header = messages.filter(sender, subject)
     messages_header = messages.get_messages(messages_header)
     notifications.show_notification(messages_header)
 
 
-schedule.every(30).seconds.do(main)
+schedule.every(5).seconds.do(main)
 
 while True:
     schedule.run_pending()

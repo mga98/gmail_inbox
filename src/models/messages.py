@@ -4,7 +4,8 @@ class Messages:
 
     def filter(
         self,
-        filter='',
+        sender=None,
+        subject=None,
         userId='me',
         includeSpamTrash=False,
         labelIds='INBOX',
@@ -12,12 +13,37 @@ class Messages:
         '''
         Filter the email that will be displayed
         '''
-        return self.service.users().messages().list(
-            userId=userId,
-            includeSpamTrash=includeSpamTrash,
-            labelIds=labelIds,
-            q=f'category:primary subject:{filter} is:unread',
-        ).execute()
+        if sender and subject:
+            return self.service.users().messages().list(
+                userId=userId,
+                includeSpamTrash=includeSpamTrash,
+                labelIds=labelIds,
+                q=f'category:primary from:{sender} subject:{subject} is:unread',  # noqa
+            ).execute()
+
+        elif sender:
+            return self.service.users().messages().list(
+                userId=userId,
+                includeSpamTrash=includeSpamTrash,
+                labelIds=labelIds,
+                q=f'category:primary from:{sender} is:unread',
+            ).execute()
+
+        elif subject:
+            return self.service.users().messages().list(
+                userId=userId,
+                includeSpamTrash=includeSpamTrash,
+                labelIds=labelIds,
+                q=f'category:primary subject:{subject} is:unread',
+            ).execute()
+
+        else:
+            return self.service.users().messages().list(
+                userId=userId,
+                includeSpamTrash=includeSpamTrash,
+                labelIds=labelIds,
+                q='category:primary is:unread',
+            ).execute()
 
     def get_messages(self, results) -> list | str:
         '''
