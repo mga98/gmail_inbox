@@ -28,7 +28,7 @@ def main():
     notifications.show_notification(messages_header)
 
 
-schedule.every(5).seconds.do(main)
+schedule.every(30).seconds.do(main)
 
 while True:
     schedule.run_pending()
