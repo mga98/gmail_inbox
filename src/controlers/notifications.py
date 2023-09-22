@@ -19,7 +19,7 @@ class Notification:
             self.toast.show_toast(
                 f'De {messages[0]["from"]}',
                 f'{messages[0]["subject"]}',
-                duration=5,
+                duration=20,
                 threaded=True
             )
 
