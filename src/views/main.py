@@ -48,6 +48,7 @@ if __name__ == '__main__':
             sender = str(input('Remetente: '))
             subject = str(input('Assunto: '))
 
+    main(sender, subject)
     schedule.every(30).seconds.do(main, sender, subject)
 
     while True:
