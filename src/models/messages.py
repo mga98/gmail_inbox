@@ -11,7 +11,7 @@ class Messages:
         labelIds='INBOX',
     ) -> object:
         '''
-        Filter the email that will be displayed
+        Filter the email by sender or subject or both
         '''
         if sender and subject:
             return self.service.users().messages().list(
@@ -47,7 +47,7 @@ class Messages:
 
     def get_messages(self, results) -> list | str:
         '''
-        Return a list of emails subjects and senders
+        Returns a list of email senders and subjects
         '''
         messages = results.get('messages')
 

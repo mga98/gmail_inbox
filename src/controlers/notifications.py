@@ -12,6 +12,9 @@ class Notification:
         self.toast = ToastNotifier()
 
     def show_notification(self, messages: list) -> None:
+        """
+        Shows a notification with "from" and "subject" when a new email arrives
+        """
         if not messages:
             return
 
