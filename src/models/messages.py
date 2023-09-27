@@ -1,3 +1,6 @@
+from typing import List
+
+
 class Messages:
     def __init__(self, service):
         self.service = service
@@ -18,7 +21,7 @@ class Messages:
             q='category:primary is:unread',
         ).execute()
 
-    def get_messages(self, results) -> list | str:
+    def get_messages(self, results) -> List[dict] | str:
         '''
         Returns a list of email senders and subjects
         '''

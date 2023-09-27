@@ -1,4 +1,5 @@
 from win10toast import ToastNotifier
+from typing import List
 
 import sys
 from pathlib import Path
@@ -11,7 +12,7 @@ class Notification:
     def __init__(self):
         self.toast = ToastNotifier()
 
-    def show_notification(self, messages: list) -> None:
+    def show_notification(self, messages: List[str]) -> None:
         """
         Shows a notification with "from" and "subject" when a new email arrives
         """

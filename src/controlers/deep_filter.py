@@ -1,4 +1,7 @@
-def deep_filter(emails: list, filters: list) -> list:
+from typing import List
+
+
+def deep_filter(emails: List[str], filters: List[str]) -> List[str]:
     filtered_emails = []
 
     if emails:
