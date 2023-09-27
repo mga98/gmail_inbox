@@ -37,7 +37,7 @@ if __name__ == '__main__':
     filters = ['vagas', 'vaga', 'retorno', 'patense', 'entrevista']
 
     main(filters)
-    schedule.every(30).seconds.do(main, filters)
+    schedule.every(1).minute.do(main, filters)
 
     while True:
         schedule.run_pending()

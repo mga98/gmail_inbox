@@ -5,7 +5,7 @@ class Messages:
     def filter(
         self,
         userId='me',
-        includeSpamTrash=False,
+        includeSpamTrash=True,
         labelIds='INBOX',
     ) -> object:
         '''
