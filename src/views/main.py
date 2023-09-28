@@ -34,7 +34,20 @@ def main(filters: list = None):
 
 
 if __name__ == '__main__':
-    filters = ['vagas', 'vaga', 'retorno', 'patense', 'entrevista']
+    filters = []
+
+    while True:
+        filter = str(input('Adicione um filtro ou aperte 0 para sair: '))
+
+        if filter == '0':
+            break
+
+        filters.append(filter)
+
+    if len(filters) > 0:
+        print(f'Filtros aplicados: {filters}')
+    else:
+        print('Nenhum filtro aplicado')
 
     main(filters)
     schedule.every(1).minute.do(main, filters)
