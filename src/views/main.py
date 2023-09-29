@@ -10,7 +10,7 @@ parent, root = file.parent, file.parents[1]
 sys.path.append(str(root))
 
 from controlers.notifications import Notification  # noqa
-from controlers.deep_filter import deep_filter  # noqa
+from controlers.deep_filter import Filter  # noqa
 from controlers.api import start_api  # noqa
 from models.messages import Messages  # noqa
 
@@ -26,7 +26,7 @@ def main(filters: list = None):
     messages_header = messages.get_messages(messages_header)
 
     if filters:
-        filtered_emails = deep_filter(messages_header, filters)
+        filtered_emails = Filter.deep_filter(messages_header, filters)
         notifications.show_notification(filtered_emails)
 
     else:
