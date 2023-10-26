@@ -4,7 +4,7 @@ from typing import List
 
 
 class Filter:
-    def deep_filter(emails: List[str], filters: List[str]) -> List[str]:
+    def deep_filter(self, emails, filters: List[str]) -> List[str]:
         filtered_emails = []
 
         if emails:
