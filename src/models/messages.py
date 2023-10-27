@@ -21,7 +21,7 @@ class Messages:
             q='category:primary is:unread',
         ).execute()
 
-    def get_messages(self, results) -> List[dict] | str:
+    def get_messages(self, results) -> List[dict] | str | bool:
         '''
         Returns a list of email senders and subjects
         '''

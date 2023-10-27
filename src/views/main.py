@@ -3,6 +3,7 @@ from __future__ import print_function
 import sys
 import time
 import schedule
+from typing import List
 from pathlib import Path
 
 file = Path(__file__).resolve()
@@ -15,7 +16,7 @@ from controlers.api import start_api  # noqa
 from models.messages import Messages  # noqa
 
 
-def main(filters: list = None):
+def main(filters: List | None = None) -> None:
     # Call the Gmail API
     service = start_api('credentials.json')
 
